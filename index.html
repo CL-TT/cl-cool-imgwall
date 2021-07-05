@@ -1,0 +1,93 @@
+<!--
+ * @Author: CL
+ * @Date: 2021-07-05 12:46:35
+ * @LastEditTime: 2021-07-05 12:52:24
+ * @Description: 炫酷照片墙
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>炫酷照片墙</title>
+    <style>
+      :root,
+      body {
+        height: 100%;
+        overflow: hidden;
+      }
+      body {
+        perspective: 1000px;
+        transform-style: preserve-3d;
+      }
+      .wrap {
+        width: 300px;
+        height: 400px;
+        /* border: 1px solid red; */
+        transform-style: preserve-3d;
+        left: 50%;
+        top: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        animation: rotatemove 20s ease-in-out infinite;
+      }
+      .wrap img {
+        width: 200px;
+        position: absolute;
+        /* backface-visibility: hidden; */
+        /* animation: rotatemove 10s linear; */
+      }
+      img:nth-of-type(1) {
+        transform: rotateY(45deg) translateZ(300px);
+      }
+      img:nth-of-type(2) {
+        transform: rotateY(90deg) translateZ(400px);
+      }
+      img:nth-of-type(3) {
+        transform: rotateY(135deg) translateZ(480px);
+      }
+      img:nth-of-type(4) {
+        transform: rotateY(180deg) translateZ(360px);
+      }
+      img:nth-of-type(5) {
+        transform: rotateY(225deg) translateZ(380px);
+      }
+      img:nth-of-type(6) {
+        transform: rotateY(266deg) translateZ(300px);
+      }
+      img:nth-of-type(7) {
+        transform: rotateY(315deg) translateZ(300px);
+      }
+      img:nth-of-type(8) {
+        transform: rotateY(360deg) translateZ(300px);
+      }
+      @keyframes rotatemove {
+        0% {
+          transform: translate(-50%, -50%) rotateY(0deg);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotateY(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <img src="./image/z1.jpg" alt="" />
+      <img src="./image/z2.jpg" alt="" />
+      <img src="./image/z3.jpg" alt="" />
+      <img src="./image/z4.jpg" alt="" />
+      <img src="./image/z5.jpg" alt="" />
+      <img src="./image/z6.jpg" alt="" />
+      <img src="./image/z7.jpg" alt="" />
+      <img src="./image/z8.jpg" alt="" />
+    </div>
+
+    <script>
+      document.body.onmousemove = function(e) {
+        this.style.perspectiveOrigin = "" + e.pageX + "px " + e.pageY + "px";
+      };
+    </script>
+  </body>
+</html>
